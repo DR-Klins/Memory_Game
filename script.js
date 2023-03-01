@@ -53,6 +53,9 @@ document.addEventListener('DOMContentLoaded', () => {
   
     cardArray.sort(() => 0.5 - Math.random())
   
+    const timeLeft = document.querySelector('#time-left')
+    let currentTime = 45
+    let timerId = null
     const grid = document.querySelector('.grid')
     const resultDisplay = document.querySelector('#result')
     let cardsChosen = []
@@ -113,4 +116,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   
     createBoard()
+    function countDown() {
+      currentTime--
+      timeLeft.textContent = currentTime
+     
+      if (currentTime == 0) {
+        clearInterval(countDownTimerId)
+        clearInterval(timerId)
+        alert('GAME OVER!')
+      }
+     
+     }
+     
+     let countDownTimerId = setInterval(countDown, 1000)
   })
