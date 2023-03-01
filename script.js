@@ -116,6 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   
     createBoard()
+    
     function countDown() {
       currentTime--
       timeLeft.textContent = currentTime
